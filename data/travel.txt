@@ -1,0 +1,17 @@
+World Cities Travel Guide:
+
+- Paris, France: Known for the Eiffel Tower, Louvre Museum, and charming streets.
+- New York City, USA: Famous for Times Square, Central Park, and the Statue of Liberty.
+- London, UK: Home to Big Ben, Buckingham Palace, and the British Museum.
+- Tokyo, Japan: A vibrant mix of modern skyscrapers, temples, and sushi culture.
+- Rome, Italy: Historic city with the Colosseum, Vatican City, and ancient ruins.
+- Dubai, UAE: Known for Burj Khalifa, luxury shopping, and desert experiences.
+- Singapore: Clean and modern city with Marina Bay Sands and Gardens by the Bay.
+- Barcelona, Spain: Famous for Gaudi architecture, beaches, and La Sagrada Familia.
+- Sydney, Australia: Known for the Sydney Opera House and Harbour Bridge.
+- Istanbul, Turkey: A cultural blend of East and West with Hagia Sophia and bazaars.
+- Bangkok, Thailand: Vibrant city with temples, street food, and nightlife.
+- Amsterdam, Netherlands: Known for canals, cycling culture, and museums.
+- Cape Town, South Africa: Famous for Table Mountain and scenic coastal views.
+- Rio de Janeiro, Brazil: Known for Christ the Redeemer and Copacabana beach.
+- Vancouver, Canada: Beautiful city with mountains, parks, and waterfront views.

@@ -1,0 +1,14 @@
+venv/
+.env
+__pycache__/
+*.pyc
+.git/
+chroma/
+data/
+datasets/
+*.csv
+*.pkl
+*.db
+*.sqlite
+node_modules/
+.DS_Store
