@@ -191,11 +191,11 @@ streamlit run app.py
 Absolutely, exploring cafes near the iconic CN Tower is a delightful way to enjoy the city! Here are some wonderful spots to check out:
 
 #### Tim Hortons
-⭐️ A Canadian classic! Enjoy a rich coffee and their famous Timbits right in the bustling heart of Toronto.
+A Canadian classic! Enjoy a rich coffee and their famous Timbits right in the bustling heart of Toronto.
 Rating: ★★★★☆ (4.5/5 on Google)
 
 #### The Morning After
-🌞 Brunch lovers rejoice! Known for its hearty brunch options and cozy vibe, this cafe is perfect for a laid-back meal.
+Brunch lovers rejoice! Known for its hearty brunch options and cozy vibe, this cafe is perfect for a laid-back meal.
 Rating: ★★★★☆ (4.4/5 on Google)
 ---
 
