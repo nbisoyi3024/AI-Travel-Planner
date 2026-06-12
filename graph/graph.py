@@ -1,7 +1,7 @@
 #Workflow graph 
 from langgraph.graph import StateGraph, END
 
-from agents.agents import (
+from core.agents import (
     supervisor_agent,
     planner_agent,
     places_agent,

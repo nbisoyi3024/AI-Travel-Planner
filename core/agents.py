@@ -1,5 +1,5 @@
 #Logic for multiple agents: supervisor, planner, places, RAG
-
+import json
 from langchain_openai import ChatOpenAI
 
 from tools.mcp_tools import rag_mcp_tool, places_mcp_tool
@@ -50,21 +50,56 @@ def planner_agent(state):
 
     query = state["input"]
 
-    response = f"""
-    ✈️ Travel Itinerary for: {query}
+    prompt = f"""
+    You are a world-class travel planner.
+    
+    Create a detailed travel Itinerary for: {query}
+    
+    Do not generate multiple itineraries.
+    Requirements:
+    - Organize each day into Morning, Afternoon, and Evening.
+    - Include real attractions and restaurants.
+    - Group nearby attractions together.
+    - Avoid excessive travel between locations.
+    - Include a brief reason for each recommendation.
+    - Use realistic timings.
+    - Return clean JSON only.
 
-    Day 1:
-    • Explore local attractions
-    • Try famous restaurants
-
-    Day 2:
-    • Visit museums and cafes
-    • Evening city walk
+    Rules:
+   - If the destination is a continent (e.g. Europe, Asia),
+     choose ONE realistic destination and create ONE itinerary only.
+   - Return ONLY valid JSON.
+   - Create exactly the number of days requested by the user.
+   - If preferences are not provided, make reasonable assumptions.
+   - Each day must contain:
+     Morning, Afternoon, Evening
+     - Each section must contain:
+        Activity
+        Location
+        Details
+        Time
+    Do not return:
+    - markdown
+    - bullet points
+    - explanations
+    - multiple itineraries
     """
 
+    response = llm.invoke(prompt)
+    
+    content = response.content.strip()
+    
+    #json load error handling
+    try:
+        answer = json.loads(content)
+    except Exception:
+        answer = {
+        "error": "Failed to parse response",
+        "raw_response": content
+    }
     return {
         **state,
-        "answer": response,
+        "answer": answer,
         "source": "planner_agent"
     }
 
@@ -92,21 +127,59 @@ def places_agent(state):
 
     response = llm.invoke(f"""
     
-    You are a travel assistant.
-    Write a clean, well-formatted answer.
+    You are an expert travel planner.
 
-       RULES:
-     - Start with 1 short intro sentence
-     - keep tone warm and conversational
-     - Then list 3–4 places using bullet points
-     - Each place should have:
-       • Name
-       • One short highlight
-     - End with 1–2 helpful tips
-     - show ratings if available
-     - Keep it concise and readable
-     - Use emojis where appropriate (📍 ☕ 💡)
-     - At the end, ask ONE short follow-up question.
+Create a travel itinerary for:
+{query}
+
+INSTRUCTIONS:
+
+- Generate exactly ONE itinerary.
+- If the user mentions a continent (e.g. Europe, Asia), choose ONE popular destination and build the itinerary around that destination only.
+- Create exactly the number of days requested by the user.
+- If the number of days is not specified, assume 3 days.
+- If preferences are not provided, make reasonable assumptions.
+- Use real attractions, restaurants, and landmarks.
+- Group nearby attractions together.
+- Minimize unnecessary travel.
+- Use realistic timings.
+- Include a short description for each activity.
+
+OUTPUT FORMAT:
+
+Return ONLY valid JSON.
+
+Structure:
+
+{{
+  "Day 1": {{
+    "Morning": {{
+      "Activity": "",
+      "Location": "",
+      "Details": "",
+      "Time": ""
+    }},
+    "Afternoon": {{
+      "Activity": "",
+      "Location": "",
+      "Details": "",
+      "Time": ""
+    }},
+    "Evening": {{
+      "Activity": "",
+      "Location": "",
+      "Details": "",
+      "Time": ""
+    }}
+  }}
+}}
+
+RULES:
+- Do not return markdown.
+- Do not use ```json.
+- Do not add explanations before or after the JSON.
+- Do not generate multiple itineraries.
+- The response must start with {{ and end with }}.
     Context:
     {context}
 

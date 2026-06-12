@@ -1,4 +1,8 @@
-# 🌍 TravelAI — Multi-Agent AI Travel Planning System
+# TravelAI — Multi-Agent AI Travel Planning System
+
+> **GitHub:** https://github.com/nbisoyi3024/ai-travel-planner
+
+> **Demo:** Streamlit app — run locally (see installation below)
 
 TravelAI is an advanced **multi-agent AI travel assistant** that generates intelligent, personalized travel itineraries using **LLMs, RAG (Retrieval-Augmented Generation), MCP tools, and graph-based workflow orchestration**.
 
@@ -6,9 +10,9 @@ It combines structured reasoning, external APIs, and dual-database memory system
 
 ---
 
-# 🚀 Features
+# Features
 
-### 🧠 Multi-Agent Architecture
+###  Multi-Agent Architecture
 - Planner Agent (itinerary generation)
 - QA Agent (general travel questions)
 - Retrieval Agent (RAG-based knowledge search)
@@ -16,28 +20,28 @@ It combines structured reasoning, external APIs, and dual-database memory system
 
 ---
 
-### 📚 RAG-Based Knowledge System
-- Uses `.txt` travel data for context-aware responses
+### RAG-Based Knowledge System
+- Uses `.txt` and `pdf` travel data for context-aware responses
 - Embedding-based retrieval for relevant travel information
 - Improves factual accuracy of itineraries
 
 ---
 
-### 🧩 Graph-Based Workflow Engine
+###  Graph-Based Workflow Engine
 - Controlled execution flow using `graph.py`
 - Ensures structured decision-making across agents
 - Supports scalable multi-step reasoning pipelines
 
 ---
 
-### 🔧 MCP Tool Integration
+### MCP Tool Integration
 - Places API integration for real-world data
 - Extensible tool system (`mcp_tools.py`)
 - Supports hotels, restaurants, attractions, and maps
 
 ---
 
-### 🗄️ Dual Database System
+###  Dual Database System
 - **MongoDB** → Chat history + analytics + session memory
 - **SQLite** → Structured travel data (users, itineraries, preferences)
 
@@ -45,21 +49,21 @@ Clear separation ensures scalability and reliability.
 
 ---
 
-### 🧪 Response Quality Control
+###  Response Quality Control
 - Critique Chain evaluates generated itineraries
 - Improves accuracy and reduces hallucinations
 - Enhances structured output quality
 
 ---
 
-### 🎨 Streamlit UI
+### Streamlit UI
 - Interactive chat interface (`app.py`)
 - Real-time itinerary generation
 - Conversation history tracking
 
 ---
 
-# 🏗️ System Architecture
+# System Architecture
 
 User  
 ↓  
@@ -79,25 +83,25 @@ MongoDB (chat memory) + SQLite (structured data)
 
 ---
 
-# 🧱 Project Structure
+# Project Structure
 
 TravelAI/
 │
 ├── app.py
-├── dashboard.py
+│
 ├──core 
-   |---agent.py
-   ├── agents.py
-   ├── graph.py
-   ├── state.py
-   ├── models.py
+│   |---agent.py
+│   ├── agents.py
+│   ├── state.py
+│   ├── models.py
 │
 ├── chains/
 │   ├── answer_chain.py
 │   └── critique_chain.py
 │
-├── rag/
-│   └── rag.py
+├── rag
+│  ├── rag.py
+│  └── tools.py
 │
 ├── tools/
 │   └── mcp_tools.py
@@ -107,28 +111,31 @@ TravelAI/
 │   └── sqlite_db.py
 │
 ├── data/
-│   └── travel_data.txt
+│   └── travel_docs.txt
+├── graph
+│  └──graph.py
 │
-├── utils/
+├── tools/
+│  └──mcp_tools.py
 │
 └── requirements.txt
 
 ---
 
-# ⚙️ Tech Stack
+### Tech Stack
 
-- Python 🐍
-- Streamlit 🎨
-- Multi-Agent Systems 🤖
-- RAG (Vector Search) 📚
-- MongoDB 🍃
-- SQLite 🗄️
-- Places API 🌍
+- Python 
+- Streamlit 
+- Multi-Agent Systems 
+- RAG (Vector Search) 
+- MongoDB 
+- SQLite 
+- Places API 
 - LLMs (OpenAI / Mistral / GPT)
 
 ---
 
-# 🔄 Data Flow
+### Data Flow
 
 User Query  
 ↓  
@@ -149,7 +156,7 @@ SQLite (structured travel data)
 
 ---
 
-# 🧠 Key Design Decisions
+### Key Design Decisions
 
 ✔ Separation of concerns  
 - Chat memory → MongoDB  
@@ -163,30 +170,36 @@ SQLite (structured travel data)
 
 ---
 
-# 📦 Installation
+### Installation
 
-git clone https://github.com/your-username/TravelAI.git  
+git clone  https://github.com/nbisoyi3024/Ai-Travel-Planner.git 
 cd TravelAI  
 pip install -r requirements.txt  
 
 ---
 
-# ▶️ Run the App
+### Run the App
 
 streamlit run app.py  
 
 ---
+### Example Output
 
-# 🔑 Environment Variables
+**User:** best cafes near CN tower
 
-Create a `.env` file:
+**TravelAI:**
+Absolutely, exploring cafes near the iconic CN Tower is a delightful way to enjoy the city! Here are some wonderful spots to check out:
 
-MONGO_URI=your_mongodb_connection_string  
-OPENAI_API_KEY=your_api_key  
+Tim Hortons
+⭐️ A Canadian classic! Enjoy a rich coffee and their famous Timbits right in the bustling heart of Toronto.
+Rating: ★★★★☆ (4.5/5 on Google)
 
+The Morning After
+🌞 Brunch lovers rejoice! Known for its hearty brunch options and cozy vibe, this cafe is perfect for a laid-back meal.
+Rating: ★★★★☆ (4.4/5 on Google)
 ---
 
-# 📊 Future Improvements
+###  Future Improvements
 
 - LangGraph full migration  
 - Flight + hotel booking APIs  
@@ -197,7 +210,7 @@ OPENAI_API_KEY=your_api_key
 
 ---
 
-# 🧑‍💻 Author
+### Author
 
 Niharika Bisoyi  
 AI Engineer | Multi-Agent Systems | RAG | LLM Applications  

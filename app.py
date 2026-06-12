@@ -1,4 +1,5 @@
 #UI and main app logic
+import json
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -85,14 +86,18 @@ if user_query:
          status = "Regenerated"
     else:
          final_answer = answer
+         print(type(final_answer))
          status = "Trusted the agent output"
 
     #show assistant response
     with st.chat_message("assistant"):
-            st.markdown(final_answer)
-            st.caption(status)
+         if isinstance(final_answer, dict):
+              st.json(final_answer)
+         else:
+              st.markdown(final_answer)
+         st.caption(status)
 
-            if show_debug:
+         if show_debug:
                  st.caption(f"Agent Used: 🤖 {source}")
              
     # Save assistant response

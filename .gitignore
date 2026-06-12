@@ -1,4 +1,4 @@
-.env
+.venv
 venv/
 .env
 __pycache__/
@@ -17,4 +17,3 @@ node_modules/
 .idea/
 database/__pycache__/
 database/*.db
-README.md
