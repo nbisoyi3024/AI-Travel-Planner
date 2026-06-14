@@ -1,0 +1,9 @@
+cat > .dockerignore << 'EOF'
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env
+.git/
+chroma_db/
+EOF
