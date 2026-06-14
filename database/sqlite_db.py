@@ -17,7 +17,7 @@ def init_db():
     cursor.execute('''CREATE TABLE IF NOT EXISTS users
                  (id INTEGER PRIMARY KEY AUTOINCREMENT,
                   name TEXT,
-                   email TEXT,)
+                   email TEXT)
                  ''')
    #itineraries table
     cursor.execute("""
