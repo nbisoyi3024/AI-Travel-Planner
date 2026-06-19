@@ -14,4 +14,3 @@ openai
 google-cloud
 pymongo
 plotly
-EOF
