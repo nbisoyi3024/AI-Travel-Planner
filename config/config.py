@@ -10,6 +10,10 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 OpenAI_API_KEY = os.getenv("OPENAI_API_KEY")
 MONGO_URI = os.getenv("MONGO_URI")
 
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+llm = llm = ChatOpenAI(
+    model="gpt-4o-mini",
+    temperature=0,
+    api_key=OpenAI_API_KEY   # ← add this line
+)
 
 parser = StrOutputParser()
