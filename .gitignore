@@ -17,3 +17,5 @@ node_modules/
 .idea/
 database/__pycache__/
 database/*.db
+database/sqlite_db.py
+.DS_Store
