@@ -1,4 +1,4 @@
-name: Travel AI CI
+name: Travel AI CI/CD
 
 on:
   push:
@@ -29,10 +29,10 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-          
         run: |
           pytest -v
-    deploy:
+
+  deploy:
     needs: test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
