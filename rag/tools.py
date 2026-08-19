@@ -28,9 +28,9 @@ def get_places(query):
     return results
 
 #helper function that avoids calling the Places API repeatedly for the same query
-@st.cache_data
+@st.cache_data(ttl=3600)  # Cache for 1 hour
 def cached_places(query):
-    return get_places(query)
+    return get_places(query.strip().lower())
 
 
 

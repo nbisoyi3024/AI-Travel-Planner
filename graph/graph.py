@@ -1,5 +1,6 @@
 #Workflow graph 
 from langgraph.graph import StateGraph, END
+from utils.logger import logger
 
 from core.agents import (
     supervisor_agent,
@@ -24,7 +25,11 @@ def build_graph():
     
     #routing logic
     def route(state):
-        return state.get("next","rag")
+        next_agent = state.get("next", "rag")
+
+        logger.info("Routing request to: %s", next_agent)
+
+        return next_agent
     
     #dynamic routing based on supervisor output
     workflow.add_conditional_edges(
@@ -32,7 +37,10 @@ def build_graph():
         route,
         {
             "planner": "planner",
-            "places": "places",
+            "restaurants": "places",
+            "hotels": "places",
+            "attractions": "rag",
+            "budget": "rag",
             "rag": "rag"
         }
     )

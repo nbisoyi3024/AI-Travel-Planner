@@ -1,21 +1,38 @@
-.venv
+# Virtual environments
+.venv/
 venv/
+
+# Environment variables / secrets
 .env
+
+# Python cache
 __pycache__/
 *.pyc
-.git/
-chroma/
+.pytest_cache/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Local vector database
+chroma_db/
+
+# Data
 data/
 datasets/
 *.csv
 *.pkl
-*.db
-*.sqlite
-node_modules/
-.DS_Store
-.gcloudignore
+
+# IDE / OS
 .idea/
-database/__pycache__/
-database/*.db
-database/sqlite_db.py
 .DS_Store
+
+# Node
+node_modules/
+
+# Git
+.git/
+
+# Python-specific local files
+*.log

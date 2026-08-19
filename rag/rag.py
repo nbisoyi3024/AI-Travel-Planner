@@ -54,9 +54,3 @@ def query_rag(query):
     print("RAG CONTEXT:", context)
     
     return context
-
-#-------RETRIEVER LOADING WITH CACHING-----
-#@st.cache_resource
-#def get_retriever():
- #   from rag import load_rag
-  #  return load_rag()
